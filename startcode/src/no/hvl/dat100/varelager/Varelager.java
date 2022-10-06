@@ -29,28 +29,33 @@ public class Varelager {
 	public boolean leggTil(int varenr, String navn, double pris) {
 		boolean b = false;
 		Vare en = new Vare(varenr, navn, pris);
-		en.setVarenr(varenr);
-		en.setNavn(navn);
-		en.setPris(pris);
 		
-		if(en.getVarenr() != 0 || en.getNavn() != "null" && en.getPris() != 0) {
+		if(antall < varer.length) {
+			varer[antall] = en;
+			antall++;
 			b = true;
 		}
 		return b;
 	}
 	
 	public Vare finnVare(int varenr) {
-			
-		throw new TODO("finnVare");
-
+		Vare v1 = null;
+		for(int i = 0; i < varer.length; i++) {
+			if(varenr == i) {
+				v1 = varer[i];
+			}
+		}
+		return v1;
 	}
 	
 	private String SEP = "==============================";
 	
 	public void printVarelager() {
-				
-		throw new TODO("printVarelager");
-
+		
+		System.out.println(SEP);
+		for(int i = 0; i < varer.length; i++) {
+			varer[i].toString();
+		}
 	}
 	
 }
